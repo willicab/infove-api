@@ -5,14 +5,15 @@
      * Versión 0.1
      * 
      * Parametros (Vía GET o POST)
-     * n: Número de Nic
+     * a: código de area
+     * t: Número de Teléfono
      * 
      * Este escript está liberado bajo los términos de la WTFPL versión 2
      * o superior, puede conseguir una copia en http://www.wtfpl.net/about/
      */
 
     $url = "http://www.cantv.com.ve/seccion.asp?pid=1&sid=450";
-    $params = "sarea=212&stelefono=2900898";
+    $params = "sarea=".$_REQUEST["a"]."&stelefono=".$_REQUEST["t"];
 
     $ch = curl_init();
     curl_setopt($ch,CURLOPT_URL, $url);
