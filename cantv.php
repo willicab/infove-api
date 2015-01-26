@@ -1,6 +1,6 @@
 <?php
     /*
-     * Script para obtener la deuda de corpoelec
+     * Script para obtener la deuda de cantv
      * Creado por William Cabrera (aka willicab) <cabrerawilliam@gmail.com>
      * Versión 0.1
      * 
@@ -41,9 +41,9 @@
         $npos = strpos($html, 'Saldo actual Bs.') + 118;
         $j['saldoActual'] = trim(substr($html, ($npos), (strpos($html, '</font>', ($npos)) - ($npos))));
 
-        #Obtener Ultima Actualización
+        #Obtener Ultima Facturación
         $npos = strpos($html, 'Fecha de &uacute;ltima facturaci&oacute;n:') + 132;
-        $j['ultimaActualizacion'] = trim(substr($html, ($npos), (strpos($html, '</font>', ($npos)) - ($npos))));
+        $j['ultimaFacturacion'] = trim(substr($html, ($npos), (strpos($html, '</font>', ($npos)) - ($npos))));
 
         #Obtener Fecha de Corte
         $npos = strpos($html, 'Fecha corte:') + 102;
@@ -61,5 +61,7 @@
         $npos = strpos($html, 'Monto del &uacute;ltimo pago realizado:') + 130;
         $j['ultimoPago'] = trim(substr($html, ($npos), (strpos($html, '</font>', ($npos)) - ($npos))));
 
+        $j['error'] = 0;
         print json_encode($j);
     }
+
