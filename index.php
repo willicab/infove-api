@@ -17,7 +17,44 @@ Flight::map('notFound', function(){
 });
 
 Flight::route('/', function(){
-    echo 'hello world!';
+    $infove["infove"] = array();
+    $infove["infove"]["cantv"] = array(
+        "deuda" => array(
+            "Código de Area",
+            "Teléfono"
+        )
+    );
+    $infove["infove"]["cne"] = array(
+        "elector" => array(
+            "Nacionalidad",
+            "Cédula de Identidad"
+        )
+    );
+    $infove["infove"]["corpoelec"] = array(
+        "deuda" => array(
+            "NIC"
+        )
+    );
+    $infove["infove"]["ivss"] = array(
+        "cuenta" => array(
+            "Nacionalidad",
+            "Cédula de Identidad",
+            "Día de Nacimiento",
+            "Mes de Nacimiento",
+            "Año de Nacimiento"
+        )
+    );
+    $infove["infove"]["seniat"] = array(
+        "contribuyente" => array(
+            "RIF"
+        )
+    );
+    $infove["infove"]["zoom"] = array(
+        "seguimiento" => array(
+            "Número de Guía"
+        )
+    );
+    echo Flight::json($infove);
 });
 
 Flight::route("GET /cantv(/@recurso(/@param1(/@param2)))", function($recurso="", $param1="", $param2=""){
