@@ -49,7 +49,7 @@ class Zoom {
             $i = 0;
             foreach($seguimiento as $v) {
                 $i++;
-                $h = str_replace("</tr>", "", str_replace("</td>", "", $v));
+                $h = str_replace("</tr>", "", str_replace("</td>", "", str_replace("<td class=normal>", "", str_replace("<tr>", "",$v))));
                 switch($i) {
                     case 1:
                         $k["oficina"] = $h;
