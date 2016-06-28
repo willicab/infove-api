@@ -16,7 +16,8 @@ class Cne {
             $m=curl_error(($ch));
             error_log($m);
             curl_close($ch);
-            $j['error'] = $m;
+            $j['error'] = true;
+            $j['descripcion'] = $m;
             print json_encode($j);
             return;
         } else {
