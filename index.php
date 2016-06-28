@@ -96,4 +96,17 @@ Flight::route("GET /seniat(/@recurso(/@param1))", function($recurso="", $param1=
     }
 });
 
+Flight::route("GET /zoom(/@recurso(/@param1))", function($recurso="", $param1=""){
+    require "clases/zoom.php";
+    Flight::register("zoom", "Zoom");
+    switch($recurso) {
+        case "seguimiento":
+            if ($param1 == "") Flight::halt(400, '{"error":true, "descripcion":"No se ha indicado el número de guía"}');
+            print Flight::zoom()->obtenerSeguimiento($param1);
+            break;
+        default:
+            Flight::halt(400, '{"error":true, "descripcion":"no se ha indicado el recurso"}');
+    }
+});
+
 Flight::start();
